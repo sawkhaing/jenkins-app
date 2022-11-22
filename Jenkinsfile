@@ -43,7 +43,7 @@ spec:
         }
     }
     environment {
-        IMAGE_PUSH_DESTINATION="kyounger/dind-jenkins:k8s-secret-declarative"
+        
     }
     stages {
         stage('Checkout scm') {
@@ -72,7 +72,7 @@ spec:
         stage('helm') {
           steps {
             container('helm') {
-              sh 'helm ls -A'
+              sh 'helm install azt-nginx ./helm-charts --create-namespace --namespace app'
             }
           }
         }
