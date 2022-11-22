@@ -48,18 +48,7 @@ spec:
         stage('Docker Build') {
             steps {
                 container('docker-client') {
-                    withCredentials([file(credentialsId: 'docker-credentials', variable: 'DOCKER_CONFIG_JSON')]) {
-                        // sh '''
-                        //     mkdir -p $HOME/.docker/
-                        //     cp $DOCKER_CONFIG_JSON /$HOME/.docker/config.json
-                        //     ls -al $HOME/.docker/
-                        //     docker version && DOCKER_BUILDKIT=1 docker build --progress plain -t $IMAGE_PUSH_DESTINATION .
-                        // '''
-                        // sh '''
-                        //     docker run -t $IMAGE_PUSH_DESTINATION
-                        //     docker push $IMAGE_PUSH_DESTINATION
-                        // '''
-                        sh 'docker ps -a'
+                    sh 'docker build . -t sawkhaing/azt-nginx:1.0.0'
                     }
                 }
             }
