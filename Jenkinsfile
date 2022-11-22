@@ -63,5 +63,12 @@ spec:
                 }
             }
         }
+        stage('helm') {
+          steps {
+            container('helm') {
+              sh 'helm ls -A'
+            }
+          }
+        }
     }
 }
