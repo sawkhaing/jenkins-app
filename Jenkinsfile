@@ -69,7 +69,7 @@ spec:
         stage('helm') {
           steps {
             container('helm') {
-              sh 'helm install azt-nginx ./helm-charts --create-namespace --namespace app'
+              sh 'helm install azt-app ./helm-charts --create-namespace --namespace app'
             }
           }
         }
