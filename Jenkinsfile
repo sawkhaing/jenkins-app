@@ -42,9 +42,6 @@ spec:
 """
         }
     }
-    environment {
-        
-    }
     stages {
         stage('Checkout scm') {
             steps {
