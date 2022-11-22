@@ -11,6 +11,7 @@ kind: Pod
 metadata:
   name: dind
 spec:
+  serviceAccountName: jenkins
   containers:
   - name: docker-client
     image: docker:stable-dind
@@ -71,7 +72,7 @@ spec:
         stage('helm') {
           steps {
             container('helm') {
-              sh 'helm version'
+              sh 'helm ls -A'
             }
           }
         }
