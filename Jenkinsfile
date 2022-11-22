@@ -1,14 +1,12 @@
 pipeline {
-    agent any
-
+    agent {
+        docker { image 'docker:stable-dind' }
+    }
     stages {
-        stage('Build') {
+        stage('Test') {
             steps {
-                script {
-                  sh 'docker ps -a'
-               }
+                sh 'docker ps -a'
             }
-
         }
     }
 }
