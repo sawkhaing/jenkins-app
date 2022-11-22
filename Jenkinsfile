@@ -28,6 +28,11 @@ spec:
     volumeMounts:
       - name: cache
         mountPath: /var/lib/docker
+  - name: helm
+    image: alpine/helm:3.10.2
+    command:
+    - cat
+    tty: true
   volumes:
   - name: cache
     hostPath:
