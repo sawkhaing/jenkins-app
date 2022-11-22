@@ -49,7 +49,6 @@ spec:
             steps {
                 container('docker-client') {
                     sh 'docker build . -t sawkhaing/azt-nginx:1.0.0'
-                    }
                 }
             }
         }
