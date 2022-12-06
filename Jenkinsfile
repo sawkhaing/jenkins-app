@@ -76,7 +76,7 @@ spec:
               '''
               sh '''
                 if [[ $(helm list --namespace app | grep azt-app | wc -l) -eq 0 ]];then
-                  helm install ./helm-charts --name-template azt-app ;
+                  helm install azt-app ./helm-charts --create-namespace --namespace app ;
                 fi
               '''
             }
