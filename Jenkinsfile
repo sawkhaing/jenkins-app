@@ -69,7 +69,16 @@ spec:
         stage('helm') {
           steps {
             container('helm') {
-              sh 'helm install azt-app ./helm-charts --create-namespace --namespace app'
+              sh '''
+                if [[ $(helm list --namespace app | grep azt-app | wc -l) -ne 0 ]];then
+                  helm delete azt-app --namespace app ;
+                fi
+              '''
+              sh '''
+                if [[ $(helm list --namespace app | grep azt-app | wc -l) -eq 0 ]];then
+                  helm install ./helm-charts --name-template azt-app ;
+                fi
+              '''
             }
           }
         }
